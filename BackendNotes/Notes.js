@@ -54,7 +54,8 @@
 
 
 
-// mongoose
+//**************************************************mongoose**************************************
+
 // mongoose is used to create the data model.That is what is the structure of our model.
 // There are three step that we have to do to create the model.
 // By adding the timestamps mongoose will create the createdAt and updatedAt field in the model which say when this model is created and when updated.
@@ -90,7 +91,7 @@
 
 
 
-// DB Connection
+//*********************************************DB Connection*****************************************
 
 // To connect with the DB we use the mongoose.connect() method provided by the mongoose.
 // our DB is present on the different quantinant so it is important to use the async await 
@@ -112,7 +113,7 @@
 
 
 
-// Config Server to take the different types of data
+//*************************************Config Server to take the different types of data********************************
 
 // app.use() is used to explicitly tell the server that you have to use this.
 
@@ -204,6 +205,7 @@
 
 // The client stores the token, typically in local storage, session storage, or cookies.
 // Usage of JWT token
+
 // Authentication:
 // After a user logs in, the server issues a JWT to authenticate the user in subsequent requests.
 // Example: OAuth 2.0.
@@ -294,6 +296,7 @@ const storage = multer.diskStorage({
 
 
 //************************************** Router  *****************************
+
 // Router is a core feature of the Express framework.
 
 // Modular Code: Each router handles specific functionality.Example: One router for /users, another for /products.
