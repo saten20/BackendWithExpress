@@ -1,0 +1,22 @@
+{
+  "name": "dbconn",
+  "version": "1.0.0",
+  "description": "DB connction",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "Learning",
+    "DB",
+    "connection"
+  ],
+  "author": "satendra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9"
+  }
+}

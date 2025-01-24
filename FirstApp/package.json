@@ -1,0 +1,15 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "My first BackendServer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"index.js"
+  },
+  "author": "Satendra Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
