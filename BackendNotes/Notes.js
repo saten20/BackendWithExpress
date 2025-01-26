@@ -194,7 +194,7 @@
 
 // ********************************* jsonwebtoken(jwt) ***********************************
 
-
+// Token is primarly used for authorization.
 // JSON Web Token (JWT) is a compact, URL-safe way to securely transmit information between two parties as a JSON object.
 // It is commonly used for authentication and information exchange in web applications.
 // it is made up of three part 
@@ -223,6 +223,22 @@
 
 // The jwt.verify() method is used to validate a JWT and decode its payload. It ensures that the token was not tampered with and is still valid.
 // jwt.verify(token, secretOrPublicKey, [options, callback])
+
+
+
+
+//*********************************** Cookies *****************************
+
+// Cookies is used to send the token in the response body.
+// we can directly send the token in the response body, but client have to manage where this token will store in local or session storage
+// client have to add the token every time in the request body.
+
+// The browser automatically stores the cookie.
+// For subsequent requests to the same domain, the browser automatically includes the cookie in the Cookie header.
+// res.status(200).cookie("key", value, option) 
+// option = {httpOnly : true, secure: true} -- This means that cookie can be change at server side only. client is not allowed to change the 
+// cookie.
+// res.status(200).clearCookie("cookieName", option) -- it will remove the cookie form the localstorage.
 
 
 
@@ -313,3 +329,39 @@ const storage = multer.diskStorage({
 // router.route('/').post(methodName)
 
 // export default router
+
+
+
+
+//********************************** Mongodb  ***************************************
+
+// $or -- > user.findone({ $or: [{email} , {username}]  })  -- it will find user with anyone of the mention field in the array
+// $unset:{refreshToken:1} -- it is used to remove the mention entry from the database.  
+
+
+// const user = await User.findById(id)
+// user.refreshToken = refreshToken
+// user.save()
+
+// in above code when we fetch the data from db and if we want any changes made in that should reflect in the original db then we have to 
+// save it.
+
+
+
+
+
+
+
+
+
+
+//******************************* Access Token & refresh token ********************************
+
+// Access token -- This token is used for authorization. Expiry of access token is very short(expire mins)
+// RefreshToken -- This token is used to generate the access token(expire days or month)
+
+// when user is logged in for long time then after some time it's access token will expire, so to access authorized route user have to perfrom
+// the login again. so to solve this problem we used Refresh Token. Refresh token is store in the db and also send in the cookie.
+// so when the access token will expire client will send the Refresh token which hit particular end point through which we will verify the 
+// refresh token saved in our db.
+// Once Refresh Token is verified , it will generate one new access token and add it in the cookie.
